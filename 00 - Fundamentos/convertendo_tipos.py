@@ -8,5 +8,11 @@ valor_str = str(valor)
 print(type(valor))
 print(type(valor_str))
 
-print(100 / 2)
-print(100 // 2)
+print(101 / 2) # divisão com decimal float
+print(100 // 2) # divisão inteira
+
+
+preco = 10.50
+idade = 28
+
+print(str(preco)) #
