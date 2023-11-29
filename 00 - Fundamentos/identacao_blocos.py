@@ -1,4 +1,4 @@
-def sacar(valor):
+def sacar(valor): # def início do bloco de método
     saldo = 500
 
     if saldo >= valor:
