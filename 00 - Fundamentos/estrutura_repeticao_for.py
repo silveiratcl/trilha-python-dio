@@ -1,5 +1,5 @@
 texto = input("Informe um texto: ")
-VOGAIS = "AEIOU"
+VOGAIS = "AEIOUavaisse cafgasdasçdaçs"
 
 
 # Exemplo utilizando um iterável
