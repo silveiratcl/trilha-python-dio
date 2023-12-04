@@ -1,9 +1,9 @@
 conta_normal = False
-conta_universitaria = False
-conta_especial = True
+conta_universitaria = True
+conta_especial = False
 
 saldo = 2000
-saque = 1500
+saque = 2500
 cheque_especial = 450
 
 if conta_normal:
