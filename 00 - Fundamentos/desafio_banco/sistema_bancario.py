@@ -45,16 +45,11 @@ while True:
         elif saque > saldo:
             print("Saldo insuficiente")
 
-
-
         else:
             saldo -= saque
             numero_saque += 1
             extrato += f"Saque: R$ {saque:.2f}\n"
             print("\n Saque realizado com sucesso!\n Aguarde e retire seu dinheiro")
-
-
-
 
     elif opcao == "e":
 
@@ -62,7 +57,6 @@ while True:
 
     elif opcao == "q":
         break
-
 
 else:
         print("Operação inválida, favor selecionar opção válida")
