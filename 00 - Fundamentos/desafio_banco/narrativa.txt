@@ -1,0 +1,22 @@
+Sistema Bancário
+
+
+### Deposito
+- deposito positivo somente (inserir controle)
+- somente um usuário
+- armazenados em uma variável (para estar acessível em extrato)
+- visualizados em extrato
+
+### saques
+
+- 3 saques diários
+- limite de 500 por saque
+- sem saldo exibe mensagem saldo insuficiente
+- saques tem estar no extrato da operação
+
+### extrato
+
+- listar depósitos
+- listar saques
+- final exibir o saldo
+- valores exibidos em formato currency

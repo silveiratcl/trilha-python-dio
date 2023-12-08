@@ -10,9 +10,9 @@ while True:
     print(numero)
 
 
-# for numero in range(100):
+for numero in range(100):
 
-#     if numero % 2 == 0:
-#         continue
+    if numero % 2 == 0:
+        continue
 
-#     print(numero, end=" ")
+    print(numero, end=" ")

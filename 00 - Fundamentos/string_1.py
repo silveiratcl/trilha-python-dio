@@ -7,13 +7,13 @@ print(nome.title())
 texto = "  Olá mundo!    "
 
 print(texto + ".")
-print(texto.strip() + ".")
-print(texto.rstrip() + ".")
-print(texto.lstrip() + ".")
+print(texto.strip() + ".") # tira espaço
+print(texto.rstrip() + ".") # tira espaço direito
+print(texto.lstrip() + ".") # tira espaço esquerdo
 
 menu = "Python"
 
-print("####" + menu + "####")
-print(menu.center(14))
-print(menu.center(14, "#"))
-print("-".join(menu))
+print("####" + menu + "####") # adiciona caracteres
+print(menu.center(14)) # centraliza
+print(menu.center(14, "#")) # centraliza e prenche com o character
+print("-".join(menu)) # une separando por um character
