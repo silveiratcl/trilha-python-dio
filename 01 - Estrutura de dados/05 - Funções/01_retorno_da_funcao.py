@@ -11,3 +11,4 @@ def retorna_antecessor_e_sucessor(numero):
 
 print(calcular_total([10, 20, 34]))  # 64
 print(retorna_antecessor_e_sucessor(10))  # (9, 11)
+
