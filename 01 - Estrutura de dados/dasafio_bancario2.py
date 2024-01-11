@@ -1,3 +1,5 @@
+import textwrap
+
 def depositar(saldo, extrato):
     """
     Realiza um depósito na conta.
@@ -29,8 +31,7 @@ def depositar(saldo, extrato):
 
     return saldo, extrato
 
-
-def sacar(saldo, extrato, numero_saques, limite_saques, limite):
+def sacar(saldo, extrato, numero_saques, LIMITE_SAQUES, limite):
     """
     Realiza saque em conta
 
@@ -52,7 +53,7 @@ def sacar(saldo, extrato, numero_saques, limite_saques, limite):
 
     excedeu_saldo = valor > saldo
     excedeu_limite = valor > limite
-    excedeu_saques = numero_saques >= limite_saques
+    excedeu_saques = numero_saques >= LIMITE_SAQUES
 
     if excedeu_saldo:
         print("Operação falhou! Você não tem saldo suficiente.")
@@ -74,7 +75,6 @@ def sacar(saldo, extrato, numero_saques, limite_saques, limite):
         print("Operação falhou! O valor informado é inválido.")
 
     return saldo, extrato, numero_saques
-
 
 def exibir_extrato(saldo, extrato):
     """ imprime o extrato
@@ -135,7 +135,6 @@ def cria_usuario(lista_clientes):
 
     return cliente, lista_clientes
 
-
 def exibe_clientes(lista_clientes):
     """ exibe a lista de clientes cadastrados
 
@@ -147,7 +146,6 @@ def exibe_clientes(lista_clientes):
     for cliente in lista_clientes:
         print(cliente)
     print("========================================================")
-
 
 def cria_conta_corrente(agencia, lista_clientes, lista_contas):
     AGENCIA = "0001"
