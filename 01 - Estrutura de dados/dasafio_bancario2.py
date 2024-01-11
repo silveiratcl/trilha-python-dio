@@ -1,4 +1,19 @@
 def depositar(saldo, extrato):
+    """
+    Realiza um depósito na conta.
+
+    Parameters:
+    - saldo (float): O saldo atual da conta.
+    - extrato (str): O extrato da conta.
+
+    Returns:
+    Tuple[float, str]: Uma tupla contendo o novo saldo e o extrato atualizado.
+
+    Raises:
+    ValueError: Se o valor do depósito for negativo.
+
+    """
+
     valor = float(input("Informe o valor do depósito: "))
 
     if valor > 0:
@@ -16,6 +31,23 @@ def depositar(saldo, extrato):
 
 
 def sacar(saldo, extrato, numero_saques, limite_saques, limite):
+    """
+    Realiza saque em conta
+
+    Args:
+        saldo (float): saldo
+        extrato (str): operacoes realizadas
+        numero_saques (int): acumula o numero de saques
+        limite_saques (int): limite de saques diário
+        limite (float): limite a ser sacado
+
+    Returns:
+        str: retorna o output da operacao considerando
+        os limite de saque e limite de saldo
+        saldo, extrato e numero de saques restantes
+
+    """
+
     valor = float(input("Informe o valor do saque: "))
 
     excedeu_saldo = valor > saldo
@@ -45,12 +77,33 @@ def sacar(saldo, extrato, numero_saques, limite_saques, limite):
 
 
 def exibir_extrato(saldo, extrato):
+    """ imprime o extrato
+
+    Args:
+        saldo (float): saldo
+        extrato (str): extrato
+    """
+
     print("\n================ EXTRATO ================")
     print("Não foram realizadas movimentações." if not extrato else extrato)
     print(f"\nSaldo: R$ {saldo:.2f}")
     print("==========================================")
 
 def cria_usuario(lista_clientes):
+    """ cria usuario
+
+    Args:
+        nome (str): nome
+        data_nascimento (str): DD-MM-AAAA
+        cpf (str): cpf
+        logradouro:
+        lista_clientes (_type_):
+
+    Returns:
+        usuário (str)
+        lista de clientes (list)
+    """
+
     nome = str(input("Informe o nome: "))
     data_nascimento = str(input("Data de nascimento (DD-MM-AAAA): "))
     cpf = str(input("Insira o CPF (somente números): "))
@@ -71,7 +124,7 @@ def cria_usuario(lista_clientes):
     cliente = {'nome': nome, 'data_nascimento': data_nascimento, 'cpf': cpf, 'endereco': endereco}
     lista_clientes.append(cliente)
 
-    # Call the function with the correct parameters
+    # chamando cria_conta_corrente
     if any(cliente['cpf'] != cpf for cliente in lista_clientes):
         cria_conta_corrente(AGENCIA, lista_clientes, lista_contas)
     else:
@@ -84,6 +137,12 @@ def cria_usuario(lista_clientes):
 
 
 def exibe_clientes(lista_clientes):
+    """ exibe a lista de clientes cadastrados
+
+    Args:
+        lista_clientes (list): lista de clientes
+    """
+
     print("\n================ Clientes Cadastrados ================")
     for cliente in lista_clientes:
         print(cliente)
@@ -107,14 +166,25 @@ def cria_conta_corrente(agencia, lista_clientes, lista_contas):
     return AGENCIA, nova_conta_corrente, agencia_conta_cpf, lista_contas
 
 def exibe_clientes_conta(lista_contas):
+    """
+    exibe clientes com a conta corrente
+
+     Args:
+        cliente_conta (list): lista de clientes cadastrados
+        lista_contas (list): lista de clientes com conta
+
+    """
+
     print("\n================ Clientes Cadastrados ================")
     for cliente_conta in lista_contas:
-        print(cliente_conta)
+        for key, value in cliente_conta[0].items():
+            print(f"{key}: {value}")
+        print("--------------------------------------------------------")
+
+
     print("========================================================")
 
     return lista_contas, cliente_conta
-
-# Rest of your code remains unchanged
 
 
 
@@ -151,6 +221,7 @@ agencia_conta_cpf = None
 lista_clientes = []
 lista_contas = []
 AGENCIA = str("0001")
+
 while True:
     opcao = input(menu)
 
