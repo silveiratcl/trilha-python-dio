@@ -1,5 +1,5 @@
 class Veiculo:
-    def __init__(self, cor, placa, numero_rodas):
+    def __init__(self, cor, placa, numero_rodas): #instancias de veiculo
         self.cor = cor
         self.placa = placa
         self.numero_rodas = numero_rodas
@@ -21,7 +21,7 @@ class Carro(Veiculo):
 
 class Caminhao(Veiculo):
     def __init__(self, cor, placa, numero_rodas, carregado):
-        super().__init__(cor, placa, numero_rodas)
+        super().__init__(cor, placa, numero_rodas) # chama a implementacaoda classe pai
         self.carregado = carregado
 
     def esta_carregado(self):
