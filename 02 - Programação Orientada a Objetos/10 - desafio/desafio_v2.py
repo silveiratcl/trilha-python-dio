@@ -17,7 +17,7 @@ class Cliente:
 
 class PessoaFisica(Cliente):
     def __init__(self, nome, data_nascimento, cpf, endereco):
-        super().__init__(endereco)
+        super().__init__(endereco) #chama 
         self.nome = nome
         self.data_nascimento = data_nascimento
         self.cpf = cpf
