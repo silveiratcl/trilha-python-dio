@@ -1,3 +1,4 @@
+import datetime
 class Pessoa:
     def __init__(self, nome, ano_nascimento):
         self.nome = nome
@@ -11,3 +12,5 @@ class Pessoa:
 
 pessoa = Pessoa("Guilherme", 1994)
 print(f"Nome: {pessoa.nome} \tIdade: {pessoa.idade}")
+
+

@@ -2,7 +2,7 @@ class Foo:
     def __init__(self, x=None):
         self._x = x
 
-    @property
+    @property #decorador
     def x(self):
         return self._x or 0
 
@@ -12,7 +12,7 @@ class Foo:
 
     @x.deleter
     def x(self):
-        self._x = 0
+        self._x = 0 # melhor deixar o valor 0
 
 
 foo = Foo(10)
