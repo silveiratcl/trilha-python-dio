@@ -15,5 +15,5 @@ class MeuIterador:
             raise StopIteration
 
 
-for i in MeuIterador(numeros=[38, 13, 11]):
+for i in MeuIterador(numeros=[38, 13, 11, 98]):
     print(i)
