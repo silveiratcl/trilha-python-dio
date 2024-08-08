@@ -1,6 +1,6 @@
 from datetime import date, datetime, timedelta
 
-tipo_carro = "M"  # P, M, G
+tipo_carro = "G"  # P, M, G
 tempo_pequeno = 30
 tempo_medio = 45
 tempo_grande = 60

@@ -1,5 +1,5 @@
 import textwrap
-from abc import ABC, abstractclassmethod, abstractproperty
+from abc import ABC, abstractmethod
 from datetime import datetime
 
 
@@ -33,7 +33,12 @@ class Cliente:
         self.indice_conta = 0
 
     def realizar_transacao(self, conta, transacao):
+        if len(conta.historico.transacoes_do_dia()) >= 2:
+            print("\n@@@ Você execedeu o número de transações permitidas para hoje! @@@")
+            return
+        
         transacao.registrar(conta)
+
 
     def adicionar_conta(self, conta):
         self.contas.append(conta)
@@ -153,7 +158,7 @@ class Historico:
             {
                 "tipo": transacao.__class__.__name__,
                 "valor": transacao.valor,
-                "data": datetime.now().strftime("%d-%m-%Y %H:%M:%s"),
+                "data": datetime.now().strftime("%d-%m-%Y %H:%M:%S"),
             }
         )
 
@@ -162,14 +167,23 @@ class Historico:
             if tipo_transacao is None or transacao["tipo"].lower() == tipo_transacao.lower():
                 yield transacao
 
+    def transacoes_do_dia(self):
+        data_atual = datetime.now().date()
+        transacoes = []
+        for transacao in self._transacoes:
+            data_transacao = datetime.strptime(transacao["data"], "%d-%m-%Y %H:%M:%S").date()
+            if data_atual == data_transacao:
+                transacoes.append(transacao)
+        return transacoes
+
 
 class Transacao(ABC):
     @property
-    @abstractproperty
+    @abstractmethod
     def valor(self):
         pass
 
-    @abstractclassmethod
+    @abstractmethod
     def registrar(self, conta):
         pass
 
@@ -186,7 +200,7 @@ class Saque(Transacao):
         sucesso_transacao = conta.sacar(self.valor)
 
         if sucesso_transacao:
-            conta.historico.adicionar_transacao(self)
+            conta.Historico.adicionar_transacao(self)
 
 
 class Deposito(Transacao):
@@ -297,7 +311,7 @@ def exibir_extrato(clientes):
     tem_transacao = False
     for transacao in conta.historico.gerar_relatorio(tipo_transacao="saque"):
         tem_transacao = True
-        extrato += f"\n{transacao['tipo']}:\n\tR$ {transacao['valor']:.2f}"
+        extrato += f"\n{transacao['data']}\n{transacao['tipo']}:\n\tR$ {transacao['valor']:.2f}"
 
     if not tem_transacao:
         extrato = "Não foram realizadas movimentações"
